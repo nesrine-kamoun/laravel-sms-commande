@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -19,3 +20,9 @@ class Controller extends BaseController
 
 
 
+=======
+abstract class Controller
+{
+    //
+}
+>>>>>>> 77b1b4b58e6b52d6a4f5380e614526d692c4638f

@@ -2,11 +2,15 @@
 
 namespace App\Models;
 
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+=======
+>>>>>>> 77b1b4b58e6b52d6a4f5380e614526d692c4638f
 use Illuminate\Database\Eloquent\Model;
 
 class DetailCommande extends Model
 {
+<<<<<<< HEAD
     use HasFactory;
 
     protected $fillable = [
@@ -24,3 +28,11 @@ class DetailCommande extends Model
 
 
 
+=======
+    public function commande()
+{
+    return $this->belongsTo(Commande::class);
+}
+
+}
+>>>>>>> 77b1b4b58e6b52d6a4f5380e614526d692c4638f
