@@ -4,14 +4,20 @@ namespace App\Http\Controllers;
 use App\Models\DetailCommande;  // <== هذي صحيحة
 use App\Models\Commande;        // إذا تستعمل موديل Commande زادة
 use Illuminate\Http\Request;
+use App\Models\Product;
+
 class CommandeController extends Controller
 {
     // Affichage de toutes les commandes
-    public function index() 
-    {
-        $commandes = Commande::with('details')->get();
-        return view('front.commandes.index', compact('commandes'));
-    }
+    
+public function index()
+{
+    $commandes = Commande::with('details')->get();
+    $products = Product::all(); // 👈 هذا هو الإضافة اللازمة
+
+    return view('front.commandes.index', compact('commandes', 'products'));
+}
+
 public function destroy($id)
 {
     $commande = Commande::findOrFail($id);
@@ -74,6 +80,7 @@ public function destroy($id)
 public function editClient($id)
 {
     $detail = DetailCommande::where('commande_id', $id)->first();
+dd(DetailCommande::where('commande_id', $id)->first());
 
     if (!$detail) {
         return back()->with('error', 'Aucune commande trouvée');
@@ -99,7 +106,6 @@ public function updateClient(Request $request, $id)
 }
 // app/Http/Controllers/CommandeController.php
 
-use App\Models\DetailCommande;
 
 public function edit($id)
 {

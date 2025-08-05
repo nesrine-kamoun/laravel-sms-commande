@@ -8,11 +8,12 @@ use App\Models\Commande;
 class DetailCommandeController extends Controller
 {
     // Afficher le formulaire de modification du client
-  public function editClient($id)
+public function editClient($id)
 {
     $detail = DetailCommande::with('commande')->findOrFail($id);
     return view('front.commandes.edit', compact('detail'));
 }
+
 
 
     // Enregistrer les modifications du client

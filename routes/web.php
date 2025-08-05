@@ -2,6 +2,8 @@
 use App\Http\Controllers\DetailCommandeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommandeController;
+use App\Http\Controllers\ProductController;
+
 Route::get('/commandes',[CommandeController::class,'index'])->name('commandes.index');
 Route::get('/',[CommandeController::class,'index'])->name('commandes.index');
 
@@ -22,6 +24,27 @@ Route::get('/dashboard', function () {
 Route::get('/produits', function () {
     return view('front.commandes.produits');
 })->name('produits');
+  
+
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+
+
+
+Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+Route::post('/products/store', [ProductController::class, 'store'])->name('products.store');
+
+Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::put('/products/{product}', [ProductController::class, 'update'])->name('products.update');
+
+Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+
+
+
+
+
+
+
 
 
 
